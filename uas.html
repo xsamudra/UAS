@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+	 #map { height: 100%; } 
+	 html, body { height: 100%; margin: 0; padding: 0; }
+</style>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap"></script>      
+<script type="text/javascript">
+                        function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {
+            lat: -7.409233,
+            lng: 111.432552
+          }
+        });
+
+        var secretMessages = ['Monumen Soerjo', 'Alun-alun Merdeka Kabupaten Ngawi', 'Benteng Van Den Bosch', 'Air Terjun Pengantin', 'Taman Wisata Tawun'];
+
+        var suryo = new google.maps.Marker({
+          position: {
+            lat: -7.378348,
+            lng: 111.284386
+          },
+          map: map
+        });
+        var alun = new google.maps.Marker({
+          position: {
+            lat: -7.402911,
+            lng: 111.444664
+          },
+          map: map
+        });
+        var pendem = new google.maps.Marker({
+          position: {
+            lat: -7.390202,
+            lng: 111.454664
+          },
+          map: map
+        });
+        var pengantin = new google.maps.Marker({
+          position: {
+            lat: -7.539320,
+            lng: 111.209705
+          },
+          map: map
+        });
+        var tawun = new google.maps.Marker({
+          position: {
+            lat: -7.396232,
+            lng: 111.491178
+          },
+          map: map
+        });
+        attachSecretMessage(suryo, secretMessages[0]);
+        attachSecretMessage(alun, secretMessages[1]);
+        attachSecretMessage(pendem, secretMessages[2]);
+        attachSecretMessage(pengantin, secretMessages[3]);
+        attachSecretMessage(tawun, secretMessages[4]);
+
+        var koorMiskin = [{
+            lat: -7.335783,
+            lng: 111.345658
+          },
+          {
+            lat: -7.560475,
+            lng: 111.370146
+          },
+          {
+            lat: -7.618264,
+            lng: 111.194587
+          },
+          {
+            lat: -7.261531,
+            lng: 111.157259
+          }
+        ];
+        var miskin = new google.maps.Polygon({
+          paths: koorMiskin,
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FF0000',
+          fillOpacity: 0.35
+        });
+        miskin.setMap(map);
+        var koorPrasejahtera = [{
+            lat: -7.362265,
+            lng: 111.480664
+          },
+          {
+            lat: -7.505968,
+            lng: 111.467682
+          },
+          {
+            lat: -7.501829,
+            lng: 111.584539
+          },
+          {
+            lat: -7.409001,
+            lng: 111.669060
+          }
+        ];
+        var prsjthr = new google.maps.Polygon({
+          paths: koorPrasejahtera,
+          strokeColor: '#999900',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FFFF00',
+          fillOpacity: 0.35
+        });
+        prsjthr.setMap(map);
+        var koorSejahtera = [{
+            lat: -7.335783,
+            lng: 111.345658
+          },
+          {
+            lat: -7.560475,
+            lng: 111.370146
+          },
+          {
+            lat: -7.505968,
+            lng: 111.467682
+          },
+          {
+            lat: -7.362265,
+            lng: 111.480664
+          }
+        ];
+        var sejahtera = new google.maps.Polygon({
+          paths: koorSejahtera,
+          strokeColor: '#228B22',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#00FF00',
+          fillOpacity: 0.35
+        });
+        sejahtera.setMap(map);
+
+        var rusakberatKoor = [{
+            lat: -7.364597,
+            lng: 111.493071
+          },
+          {
+            lat: -7.365815,
+            lng: 111.491539
+          },
+          {
+            lat: -7.366409,
+            lng: 111.489023
+          },
+          {
+            lat: -7.368039,
+            lng: 111.486875
+          },
+          {
+            lat: -7.368470,
+            lng: 111.485353
+          },
+          {
+            lat: -7.369606,
+            lng: 111.483666
+          },
+          {
+            lat: -7.370585,
+            lng: 111.483178
+          },
+          {
+            lat: -7.372287,
+            lng: 111.481118
+          },
+          {
+            lat: -7.371989,
+            lng: 111.48001
+          },
+          {
+            lat: -7.373702,
+            lng: 111.477460
+          },
+          {
+            lat: -7.373436,
+            lng: 111.476226
+          },
+          {
+            lat: -7.378372,
+            lng: 111.471048
+          },
+          {
+            lat: -7.386203,
+            lng: 111.468700
+          },
+          {
+            lat: -7.390506,
+            lng: 111.461175
+          },
+          {
+            lat: -7.395517,
+            lng: 111.459953
+          },
+          {
+            lat: -7.406929,
+            lng: 111.460901
+          }
+        ];
+        var rusakberat = new google.maps.Polyline({
+          path: rusakberatKoor,
+          geodesic: false,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+
+        rusakberat.setMap(map);
+        var rusakKoor = [{
+            lat: -7.410856,
+            lng: 111.443309
+          },
+          {
+            lat: -7.430879,
+            lng: 111.440027
+          },
+          {
+            lat: -7.433422,
+            lng: 111.440006
+          },
+          {
+            lat: -7.435898,
+            lng: 111.439654
+          },
+          {
+            lat: -7.456064,
+            lng: 111.433507
+          },
+          {
+            lat: -7.460866,
+            lng: 111.432378
+          },
+          {
+            lat: -7.494535,
+            lng: 111.428788
+          },
+          {
+            lat: -7.526840,
+            lng: 111.430247
+          }
+        ];
+        var rusak = new google.maps.Polyline({
+          path: rusakKoor,
+          geodesic: false,
+          strokeColor: '#0000FF',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+
+        rusak.setMap(map);
+        var baikKoor = [{
+            lat: -7.389089,
+            lng: 111.170535
+          },
+          {
+            lat: -7.387541,
+            lng: 111.180632
+          },
+          {
+            lat: -7.388945,
+            lng: 111.191265
+          },
+          {
+            lat: -7.389499,
+            lng: 111.198264
+          },
+          {
+            lat: -7.388498,
+            lng: 111.215845
+          },
+          {
+            lat: -7.388805,
+            lng: 111.224072
+          },
+          {
+            lat: -7.389273,
+            lng: 111.227119
+          },
+          {
+            lat: -7.396071,
+            lng: 111.250122
+          },
+          {
+            lat: -7.397522,
+            lng: 111.254545
+          },
+          {
+            lat: -7.398894,
+            lng: 111.260927
+          },
+          {
+            lat: -7.405810,
+            lng: 111.277353
+          },
+          {
+            lat: -7.408528,
+            lng: 111.286337
+          },
+          {
+            lat: -7.409539,
+            lng: 111.293096
+          },
+          {
+            lat: -7.409445,
+            lng: 111.300597
+          },
+          {
+            lat: -7.408764,
+            lng: 111.311297
+          },
+          {
+            lat: -7.408636,
+            lng: 111.315857
+          },
+          {
+            lat: -7.409051,
+            lng: 111.344546
+          },
+          {
+            lat: -7.408806,
+            lng: 111.351056
+          },
+          {
+            lat: -7.409093,
+            lng: 111.356850
+          },
+          {
+            lat: -7.407593,
+            lng: 111.365809
+          },
+          {
+            lat: -7.407498,
+            lng: 111.373703
+          },
+          {
+            lat: -7.407901,
+            lng: 111.376210
+          },
+          {
+            lat: -7.413668,
+            lng: 111.401024
+          },
+          {
+            lat: -7.418464,
+            lng: 111.412261
+          },
+          {
+            lat: -7.430900,
+            lng: 111.425848
+          },
+          {
+            lat: -7.439007,
+            lng: 111.437474
+          },
+          {
+            lat: -7.452190,
+            lng: 111.445581
+          },
+          {
+            lat: -7.481434,
+            lng: 111.455791
+          },
+          {
+            lat: -7.486699,
+            lng: 111.456520
+          },
+          {
+            lat: -7.495636,
+            lng: 111.456960
+          },
+          {
+            lat: -7.500288,
+            lng: 111.457968
+          },
+          {
+            lat: -7.508159,
+            lng: 111.462893
+          }
+        ];
+        var baik = new google.maps.Polyline({
+          path: baikKoor,
+          geodesic: false,
+          strokeColor: '#00FF00',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+
+        baik.setMap(map);
+      }
+
+
+      // Attaches an info window to a marker with the provided message. When the
+      // marker is clicked, the info window will open with the secret message.
+      function attachSecretMessage(marker, secretMessage) {
+        var infowindow = new google.maps.InfoWindow({
+          content: secretMessage
+        });
+
+        marker.addListener('click', function() {
+          infowindow.open(marker.get('map'), marker);
+        });
+      }
+
+  </script>
+<div id="map"></div>
+</body>
+</html>
